@@ -1,9 +1,0 @@
-function [D,S] = ISODDTEST(A)
-S = 0;
-D = mod(A,2) ~= 0;
-
-if sum(D) == length(A)
-    S = 1;
-end
-end
-
