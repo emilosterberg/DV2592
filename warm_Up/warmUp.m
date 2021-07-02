@@ -47,14 +47,20 @@ figure()
 imshow(im2)
 
 %%
-im2 = im(R==1);
-im3 = zeros(m);
-
-        
-%%
 imresize(im2,M/m)
 %%
 im2 = im(ans);
 imshow(im2)
+
+%%
+xx;ca
+
+file = imread('Peppers.png');
+%file = imread('rose512.tif');
+imshow(file)
+info = myimageinfo(file)
+
+
+
 
 
