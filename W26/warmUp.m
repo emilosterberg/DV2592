@@ -45,7 +45,7 @@ imshow(R)
 im2 = im2double(im);
 im2 = im2.*R;
 figure()
-imshow(im2)
+imshow(im2,[])
 
 %%
 imresize(im2,M/m)
