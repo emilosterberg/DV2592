@@ -62,6 +62,23 @@ imshow(file)
 info = myimageinfo(file)
 
 
+%%
+xx
+
+A = imread('rose512.tif');
+imshow(A)
+improfile()
+%%
+xx
+ca
+A = rand(100,100);
+imshowpair(A,reshape(sort(A(:)),100,100)','montage')
+
+%%
+a = A(:,1);
+imshow(a)
+
+
 
 
 
