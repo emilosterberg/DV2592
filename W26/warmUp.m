@@ -56,10 +56,10 @@ imshow(im2)
 %%
 xx;ca
 
-file = imread('Peppers.png');
-%file = imread('rose512.tif');
-imshow(file)
-info = myimageinfo(file)
+im = imread('Peppers.png');
+%im = imread('rose512.tif');
+imshow(im)
+info = myimageinfo(im)
 
 
 %%
