@@ -9,10 +9,11 @@ function Sec = Decode(Stego, k)
 % Sec = Decode ( 'Stego.png', 'myPassWord2020!')
 % 
 
-rng(k)  % Set rng with given key
+rng(k)  % Set rng seed with given key
 ImC = getPlanes(Stego); % Retrives all bit-planes (Green)
-bin = ImC{1};   % The hidden image is in the LSB-plane
-temp = reshape(randperm(numel(bin)),435,1024);  % Random indices, the size of image
+bin = ImC{1};   % The secret image is in the LSB-plane
+S = size(bin);  % Size of image
+temp = reshape(randperm(numel(bin)),S);  % Random indices, the size of image
 [~,ii] = sort(temp(:)); % Sroting the indices to retrive original order (vector)
-Sec = logical(bin(reshape(ii,435,1024)));   % Reshapes to original image size and converts to binary image
+Sec = logical(bin(reshape(ii,S)));   % Reshapes to original image size and converts to binary image
 end
