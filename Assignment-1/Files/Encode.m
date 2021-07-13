@@ -17,14 +17,17 @@ function stego = Encode(Im, Sec, k)
 % bitxor, bitget, bitset, randperm, rng, imread, imwrite, imshow, 
 % imshowpair, montage, subplot, figure, title, str2double
 
-rng(k)  % Set rng with given key
-temp = reshape(randperm(numel(Sec)),435,1024); % Random indices, the size of image
-stego = uint8(Sec(temp));   % Randomizes the binary image and converts to uint8
+rng(k)  % Set rng seed with given key
+S = size(Im);   % Size of image
+temp = reshape(randperm(numel(Sec)),S(1:2)); % Random indices, the size of image
+stego = uint8(Sec(temp));   % Randomizes the secret binary image and converts to uint8
 
-ImC = getPlanes(Im);    % Retrives all bit-planes (Green)
+ImPlanes = getPlanes(Im);    % Retrives all bit-planes (Green)
 
 for i = 2:8
-    stego = stego + ImC{i}; % Makes sum of all planes except LSB where the scrambled binary image takes its place
+    % Makes sum of all bit-planes except LSB where the scrambled binary 
+    % image takes its place
+    stego = stego + ImPlanes{i};
 end
 
 Im(:,:,2) = stego;  % Replaces the green space with the new with the scrambled binary image included.
