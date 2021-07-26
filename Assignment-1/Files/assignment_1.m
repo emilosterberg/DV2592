@@ -8,7 +8,7 @@ new_im = Encode(orig_im, orig_bin, key);
 figure(); imshowpair(orig_im, new_im, 'montage')
 
 % Saves the new image to file, clears the variable and loads it again, for demonstration
-imwrite(new_im,'new_BTH.png');
+%imwrite(new_im,'new_BTH.png');
 clear new_im
 new_im = imread('new_BTH.png');
 
