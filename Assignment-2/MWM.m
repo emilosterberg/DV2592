@@ -21,15 +21,11 @@ end
 
 centroids = zeros(length(allFrames),2); % Empty array for the blob centroid in each frame
 for i = 1:length(allFrames)
-    orig_gray = rgb2gray(allFrames{i}); % Converts original frame to grayscale
-    BW = ~imbinarize(orig_gray,'adaptive','ForegroundPolarity','dark','Sensitivity',0.1);   % converts to binary image
-    SE = strel('square',5); % Creates a square structuring element 
-    BW2 = imerode(BW,SE); % Erodes the binary image
-    BW2 = medfilt2(BW2);    % Removes some left over noise
-    % Retrive the centroid of the blob(mouse)
-    stats = regionprops(BW2);
-    temp1 = stats(end).Centroid;
-    centroids(i,:) = round(temp1);
+    enhancedImage = blobHighlight(allFrames{i});    % Isolate moving blob(mouse)
+    % Read centroid for blob(mouse)
+    stats = regionprops(enhancedImage);
+    %temp1 = stats.Centroid;
+    centroids(i,:) = round(stats.Centroid);
 end
 
 %Create and construct the output video with mouse tracked path
