@@ -24,7 +24,11 @@ R2 = rescale(R2);
 weights = (1-R2);
 % ----------- Code taken from MATLAB documentation: End ----------- 
 
-
+% === radial.mp4
+% binary_image = imbinarize(gray_image,'adaptive','Sensitivity',0.01);
+% se = strel('square',5);
+% binary_image = imerode(binary_image,se);
+% ========
 binary_image = ~imbinarize(gray_image,'adaptive','ForegroundPolarity','dark','Sensitivity',0.1); % Convert to binary image
 
 % Only worked when done in this order

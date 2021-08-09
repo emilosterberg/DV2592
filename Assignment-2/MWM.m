@@ -32,6 +32,7 @@ end
 % Creates empty arrays for the interpolation path
 X = [];
 Y = [];
+yellow = cast([255 255 0],'uint8');  % Yellow colour in uint8 format
 for i = 1:length(allFrames)
    if i == 1    % starting frame is just a point
       x = centroids(i,2);
@@ -44,7 +45,6 @@ for i = 1:length(allFrames)
    % Adds current interpolation path to all previous ones
    X = [X; x];
    Y = [Y; y];
-   yellow = cast([255 255 0],'uint8');  % Yellow colour in uint8 format
    % Draws the path on top of current frame
    for j = 1:length(X)
        for k = 0:1  % wider line in x-direction
@@ -56,11 +56,11 @@ for i = 1:length(allFrames)
 end
 
 %Write the video to a file
-v = VideoWriter('trackedMouse','MPEG-4');   % Creates new video file
-open(v); % open the newly created video file
-for i = 1:length(allFrames) % Add all frames to create a video
-    writeVideo(v,allFrames{i});
-end
-close(v) % Closing the video file
+% v = VideoWriter('trackedMouse','MPEG-4');   % Creates new video file
+% open(v); % open the newly created video file
+% for i = 1:length(allFrames) % Add all frames to create a video
+%     writeVideo(v,allFrames{i});
+% end
+% close(v) % Closing the video file
 
 end
