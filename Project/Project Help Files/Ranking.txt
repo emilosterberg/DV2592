@@ -1,0 +1,14 @@
+Adam 4.9484 4
+Ulf 5.3824 7
+Abbas 5.5186 13
+Sarah 5.7238 6
+emil 7.795 4
+MOMO 9.4192 4
+EMIL 12.3443 4
+Maria 14.7798 5
+POPOPO 15.5009 5
+emil 16.5305 4
+emil 21.675 4
+Jamy 25.8214 4
+emil 36.4368 21
+Yury 157.4722 23
